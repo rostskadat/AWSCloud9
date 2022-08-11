@@ -1,8 +1,7 @@
-import boto3
-import simplejson as json
+import json
 import logging
-import requests
-import os
+
+import boto3
 
 # Extract from the lambda function all costly action such as setting up a
 # connection to a DB, etc...
@@ -13,7 +12,7 @@ logger = logging.getLogger()
 logger.setLevel(logging.INFO)
 
 def lambda_handler(event, context):
-    response = client.getCallerIdentity()
+    response = client.get_caller_identity()
     return {
         "statusCode": 200,
         "headers": {
